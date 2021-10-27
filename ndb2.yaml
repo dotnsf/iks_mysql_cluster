@@ -1,0 +1,35 @@
+#apiVersion: v1
+#kind: Service
+#metadata:
+#  name: ndb2
+#spec:
+#  selector:
+#    app: ndb2
+#  ports:
+#  - port: 8080
+#    protocol: TCP
+#    targetPort: 8080
+#    nodePort: 30080
+#  type: NodePort
+#---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ndb2
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ndb2
+  template:
+    metadata:
+      labels:
+        app: ndb2
+    spec:
+      containers:
+      - name: ndb2
+        image: mysql/mysql-cluster
+        args:
+        - ndbd
+        ports:
+        - containerPort: 1186

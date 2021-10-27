@@ -1,0 +1,35 @@
+#apiVersion: v1
+#kind: Service
+#metadata:
+#  name: management1
+#spec:
+#  selector:
+#    app: management1
+#  ports:
+#  - port: 8080
+#    protocol: TCP
+#    targetPort: 8080
+#    nodePort: 30080
+#  type: NodePort
+#---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: management1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: management1
+  template:
+    metadata:
+      labels:
+        app: management1
+    spec:
+      containers:
+      - name: management1
+        image: mysql/mysql-cluster
+        args:
+        - ndb_mgmd
+        ports:
+        - containerPort: 1186
