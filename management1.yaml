@@ -34,3 +34,6 @@ spec:
 #        - ndb_mgmd
         ports:
         - containerPort: 1186
+        - containerPort: 2202
+        - containerPort: 3306
+        - containerPort: 33060

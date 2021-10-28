@@ -29,7 +29,11 @@ spec:
       containers:
       - name: ndb1
         image: mysql/mysql-cluster
-        args:
-        - ndbd
+        command: [ "ndbd" ]
+#        args:
+#        - ndbd
         ports:
         - containerPort: 1186
+        - containerPort: 2202
+        - containerPort: 3306
+        - containerPort: 33060
