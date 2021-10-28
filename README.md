@@ -1,8 +1,6 @@
-# KTR(Knee Tap Rhythm)
+# iks_mysql_cluster
 
-## Overview
-
-To visualize knee-tapping rhythm.
+YAML files to create MySQL Cluster on IKS.
 
 
 ## Copyright
